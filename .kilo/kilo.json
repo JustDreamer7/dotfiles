@@ -1,0 +1,36 @@
+{
+  "$schema": "https://app.kilo.ai/config.json",
+  "mcp": {
+    "zai-mcp-server": {
+      "type": "local",
+      "command": [
+	"npx",
+        "-y",
+        "@z_ai/mcp-server"
+      ],
+      "enabled": true,
+      "environment": {
+        "Z_AI_API_KEY": "{env:Z_AI_API}",
+	"Z_AI_MODE": "ZAI"
+      }
+    },
+    "zread": {
+      "type": "remote",
+      "url": "https://api.z.ai/api/mcp/zread/mcp",
+      "enabled": true,
+      "headers": {
+        "Authorization": "Bearer {env:Z_AI_API}"
+      },
+      "timeout": 5000
+    },
+    "web-search-prime": {
+      "type": "remote",
+      "url": "https://api.z.ai/api/mcp/web_search_prime/mcp",
+      "enabled": true,
+      "headers": {
+        "Authorization": "Bearer {env:Z_AI_API}"
+      },
+      "timeout": 5000
+    }
+  }
+}
